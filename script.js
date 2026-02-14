@@ -43,3 +43,22 @@ function triggerSuccess() {
 }
 
 
+function createHeart() {
+    const heart = document.createElement("div");
+    heart.classList.add("heart");
+    heart.innerHTML = "❤️"; // You can change this to 💖 or 💘
+    heart.style.left = Math.random() * 100 + "vw";
+    heart.style.animationDuration = Math.random() * 2 + 3 + "s"; // Between 3-5s
+    heart.style.opacity = Math.random();
+    heart.style.fontSize = Math.random() * 20 + 10 + "px";
+    
+    document.body.appendChild(heart);
+    
+    setTimeout(() => {
+        heart.remove();
+    }, 5000);
+}
+
+// Start making hearts
+setInterval(createHeart, 300);
+
