@@ -1,0 +1,118 @@
+body {
+    margin: 0;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-image: url("background.jpg");
+    background-size: cover;
+    background-position: center;
+    font-family: 'Pixelify Sans', sans-serif;
+    overflow: hidden;
+}
+
+/* Envelope Screen */
+#envelope-container {
+    text-align: center;
+    cursor: pointer;
+}
+
+#envelope {
+    width: 180px;
+    animation: pulse 1.5s infinite;
+}
+
+@keyframes pulse {
+    0% { transform: scale(1); }
+    50% { transform: scale(1.1); }
+    100% { transform: scale(1); }
+}
+
+/* Letter Screen Container */
+#letter-container {
+    display: none; /* Hidden until envelope is clicked */
+    position: fixed;
+    inset: 0;
+    justify-content: center;
+    align-items: center;
+    z-index: 10;
+}
+
+/* The fixed Window Image box */
+.letter-window {
+    width: 500px; 
+    height: 450px; 
+    display: flex; 
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    background-image: url("window.png");
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+    padding: 60px 40px; /* Keeps text inside the window art */
+    box-sizing: border-box;
+    opacity: 0;
+    transform: scale(0.8);
+    transition: 0.5s ease;
+}
+
+.letter-window.open {
+    opacity: 1;
+    transform: scale(1);
+}
+
+h1 {
+    font-size: 22px;
+    margin: 0 0 10px 0;
+    width: 85%;
+    color: #333;
+}
+
+.panda {
+    width: 150px;
+    margin-bottom: 15px;
+}
+
+/* Button Layout */
+.buttons {
+    display: flex;
+    gap: 20px;
+    position: relative;
+}
+
+.btn {
+    width: 90px;
+    cursor: pointer;
+    transition: transform 0.1s ease;
+}
+
+/* Success Text Styling */
+.final-text {
+    font-size: 18px;
+    width: 85%;
+    margin-top: 10px;
+    line-height: 1.4;
+    color: #080808;
+}
+
+/* MOBILE FIX: Ensures it looks good on Instagram/Facebook mobile browsers */
+@media (max-width: 600px) {
+    .letter-window {
+        width: 90vw; /* Scales to phone width */
+        height: auto;
+        aspect-ratio: 1/1; /* Keeps it square-ish on mobile */
+        padding: 40px 20px;
+    }
+    
+    h1 {
+        font-size: 18px;
+    }
+    
+    .panda {
+        width: 120px;
+    }
+}
+
+
